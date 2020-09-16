@@ -41,7 +41,7 @@ def intersection(arrays):
     for list in arrays:
         for item in list:
             itemster=str(item)
-            if itemster in hashcach
+            if itemster in hashcache:
                 hashcache[itemster][0]+=1
             else:
                 hashcache[itemster]=[1,item]
