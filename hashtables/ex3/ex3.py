@@ -37,7 +37,7 @@ myarrs=[
 def intersection(arrays):
     arrs_total_length=len(arrays)
     hashcache={}
-    hashcache['inall3']=[]
+    hashcache['intersections']=[]
     for list in arrays:
         for item in list:
             itemster=str(item)
@@ -47,8 +47,8 @@ def intersection(arrays):
                 hashcache[itemster]=[1,item]
 
             if hashcache[itemster][0]==arrs_total_length:
-                hashcache['inall3'].append(item)
-    result = hashcache['inall3']
+                hashcache['intersections'].append(item)
+    result = hashcache['intersections']
 
     return result
 
@@ -56,14 +56,13 @@ res= intersection(myarrs)
 
 print(myarrs)
 print(res)
-# if __name__ == "__main__":
-#     arrays = []
+if __name__ == "__main__":
+    arrays = []
 
-#     arrays.append(list(range(1000000, 2000000)) + [1, 2, 3])
-#     arrays.append(list(range(2000000, 3000000)) + [1, 2, 3])
-#     arrays.append(list(range(3000000, 4000000)) + [1, 2, 3])
+    arrays.append(list(range(1000000, 2000000)) + [1, 2, 3])
+    arrays.append(list(range(2000000, 3000000)) + [1, 2, 3])
+    arrays.append(list(range(3000000, 4000000)) + [1, 2, 3])
 
-#     print(intersection(arrays))
-
+    print(intersection(arrays))
 
 
