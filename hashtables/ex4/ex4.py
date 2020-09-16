@@ -92,7 +92,8 @@ def has_negatives(a):
             numster=str(-num)  
         if hashcache[numster] == ['neg','pos']:
             if numster not in hashcache['completed_pairs']:
-                hashcache['completed_pairs'].append(numster)
+                if num >0:
+                    hashcache['completed_pairs'].append(num)
     result = hashcache['completed_pairs']
 
 
