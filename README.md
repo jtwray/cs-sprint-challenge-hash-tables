@@ -55,16 +55,20 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
     - times when you need quick searches and inserts over a large set of records
     - browsers come to mind.
       being able to pre load webpages by saving them the first time they are loaded for users with limited cell connection or when multiple users will need the same resource from the same place you can 'serve' data once but 'many times' this way 
-    - From what im finding in my personal studies with the current technological climate there is an abundance of storage space. Ever smaller mircochips and access to storage with cloud computing space decreases the price of data concurrency. There has never been enough time since we started counting it.  So saving time by precomputing and spending data currency is optimal in     most cases.
-    - Duplication prevention
+    
+    -  From what im finding in my personal studies with the current technological climate there is an abundance of storage space. Ever smaller mircochips and access to storage with cloud computing space decreases the price of data concurrency. There has never been enough time since we started counting it.  So saving time by precomputing and spending data currency is optimal in     most cases.
+    
+    -  Duplication prevention
         - for a raffle
         -  or a voting system
         -  to keep one vote per one voter
         -  or one ticket per person
-        - storing users to prevent duplicates or overwriting
-    - the ability to use a string as the 'index' lets you use a unique id like a name or some randomly hashed int from an idempotent hashing function and still get the O(1) lookup you get from an array with a known index
-    - 
-    - 
+        - storing users to prevent duplicates or 
+          overwriting
+        - the ability to use a string as the 'index' lets you use a unique id like a name or some randomly hashed int from an idempotent hashing function and still get the O(1) lookup you get from an array with a known index
+    
+
+
 We expect you to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
 ## Instructions

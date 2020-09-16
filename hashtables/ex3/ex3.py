@@ -38,24 +38,25 @@ def intersection(arrays):
     arrs_total_length=len(arrays)
     hashcache={}
     hashcache['intersections']=[]
-    for list in arrays:
-        for item in list:
-            itemster=str(item)
-            if itemster in hashcache:
-                hashcache[itemster][0]+=1
-            else:
-                hashcache[itemster]=[1,item]
 
-            if hashcache[itemster][0]==arrs_total_length:
-                hashcache['intersections'].append(item)
+    for arr in arrays:
+        for item in arr:
+            if item in hashcache:
+                hashcache[item]+=1
+            else:
+                hashcache[item]=1
+    
+            if hashcache[item]==arrs_total_length:
+                    print("added to array",hashcache[item])
+                    hashcache['intersections'].append(item)
     result = hashcache['intersections']
 
     return result
 
-res= intersection(myarrs)
+# res= intersection(myarrs)
 
-print(myarrs)
-print(res)
+# print(myarrs)
+# print(res)
 if __name__ == "__main__":
     arrays = []
 
