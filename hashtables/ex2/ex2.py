@@ -194,7 +194,9 @@ def reconstruct_trip(flights, LoadFactor):
     while next_flight != "NONE":
         hashcache['total_transit'].append(next_flight)
         next_flight=hashcache[next_flight]
-    return hashcache['total_transit']
+    if next_flight == "NONE":
+        hashcache['total_transit'].append(next_flight)
+        return hashcache['total_transit']
         
 class Ticket:
     def __init__(self, source, destination):
