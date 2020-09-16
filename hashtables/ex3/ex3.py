@@ -10,6 +10,7 @@
 #    if count is equalt to total arrays length add the item to list hashcache['inall3'][...,...,...]
 #
 
+
  
 # PSEUDO CODE PLAN
 # create a dict
@@ -40,7 +41,7 @@ def intersection(arrays):
     for list in arrays:
         for item in list:
             itemster=str(item)
-            if itemster in hashcache:
+            if itemster in hashcach
                 hashcache[itemster][0]+=1
             else:
                 hashcache[itemster]=[1,item]
