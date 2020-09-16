@@ -1,126 +1,4 @@
-# first plan
-# 
-# Create Ticket Nodes from string pairs
-# load Ticket Nodes into a dict
-# on each load into the cache, check that each Node isnt a duplicate
-# if not a duplicate do both
-# 1 add into the dict
-# 2 also add to the end of an array at specific point of the dict
-# this will allow you to return all values in the order they were addded with no duplicates in constant time   
 
-
-# second plan
-# 
-# each Node has a S(start) and an F(finish)
-# the F of one Node is the S of one and only one other Node
-# we could add a pointer to each of the Nodes on entry
-# on hashcache Node creation create an assignment_pointer for the F of the Node finish - Node.f
-# on hashcache Node creation create an assignment_pointer for the S of the next Node - Node.Next
-# Node.Next = hashcahe[Node.f]
-# check for hashcache[finish] 
-#
-#
-# best plan so far
-
-#  we've created a list of the tickets in random order
-#  we've looped through the list and added them to the dict in the random order
-## we should while loop through the list finding the Node with 'None' as the start value
-#  this will be the first addition to the cache and the first addition to hashcache[total_transit] {total_transit:[]}
-#  continue while looping through the array Node.
-#
-# First Draft of Plan 3
-#
-#  next_flight=null
-#  total_transit=[] here or in the if loop?
-#  for flight in flights:
-#       if flight.source == None:
-#           hashcache[flight.source] = flight.destination
-#           hashcache['total_transit']=[]
-#           hashcache['total_transit'].append(flight.destination)
-#           nextflight = flight.destination
-#           return or yield?
-#  while flight.destination is not None:
-#       hashcache[flight.source] = flight.destination
-#       hashcache['total_transit'].append(flight.destination)
-#       nextflight = flight.destination
-#  if flight.destination is None:
-#       hashcache[flight.source]=flight.destination
-#       hashcache['total_transit'].append(flight.destination)            
-#       return hashcache['totat_transit]            
-#                       
-#  this will be the first addition to the cache and the first addition to hashcache[total_transit] {total_transit:[]}
-#  continue while looping through the array Node.
-
-
-class Ticket:
-    def __init__(self, source, destination):
-        self.source = source
-        self.destination = destination
-    def __str__(self):
-        return self.source,self.destination
-
-flight_cache={}
-def create_tickets(arr):
-    for r in arr:
-        ticket_values={'source':r.source,'destination':r.destination}
-        arr[r]=Ticket(**ticket_values)
-        print(arr)
-def LoadingTickets(tickets):
-    for ticket in tickets:
-        source=ticket[source]
-        destination=ticket[destination]
-        flight_cache[source]=destination
-tickets = [
-    Ticket("PIT", "ORD" ),
-    Ticket("XNA", "CID" ),
-    Ticket("SFO", "BHM" ),
-    Ticket("FLG", "XNA" ),
-    Ticket("NONE", "LAX"),
-    Ticket("LAX", "SFO" ),
-    Ticket("CID", "SLC" ),
-    Ticket("ORD", "NONE"),
-    Ticket("SLC", "PIT" ),
-    Ticket("BHM", "FLG" )
-]
-def print_tickets(tickets):
-    for ticket in tickets:
-        print(ticket.__str__())
-print_tickets(tickets)
-create_tickets(tickets)
-# ticket_cache={}
-# for ticket in tickets:
-    # ticket_cache.update(ticket)
-# tickets_arr=[]
-# def reconstruct_flight_plan(flights):
-#     LoadingTickets(flights)
-#     takeoff=0
-#     flight_plan_order=[]
-#     takeoff = flight_cache["None"]
-
-#     for flight in flights:
-#         flight_plan_order[flight]=flight_cache[takeoff]
-#         takeoff=flight_cache[takeoff]
-#         if takeoff is None:
-#             flight_plan_order.append[takeoff]
-#             return flight_plan_order
-
-# def reconstruct_trip(tickets):
-#     reconstruct_flight_plan(tickets)
-
-# tickets = [
-#     Ticket("PIT", "ORD" ),
-#     Ticket("XNA", "CID" ),
-#     Ticket("SFO", "BHM" ),
-#     Ticket("FLG", "XNA" ),
-#     Ticket("NONE", "LAX"),
-#     Ticket("LAX", "SFO" ),
-#     Ticket("CID", "SLC" ),
-#     Ticket("ORD", "NONE"),
-#     Ticket("SLC", "PIT" ),
-#     Ticket("BHM", "FLG" )
-# ]
-
- 
  
 # reconstruct_trip(tickets)
 # '''
@@ -248,3 +126,94 @@ create_tickets(tickets)
 #     # 
 #     # 
 #     # #
+
+
+# first plan
+# 
+# Create Ticket Nodes from string pairs
+# load Ticket Nodes into a dict
+# on each load into the cache, check that each Node isnt a duplicate
+# if not a duplicate do both
+# 1 add into the dict
+# 2 also add to the end of an array at specific point of the dict
+# this will allow you to return all values in the order they were addded with no duplicates in constant time   
+
+
+# second plan
+# 
+# each Node has a S(start) and an F(finish)
+# the F of one Node is the S of one and only one other Node
+# we could add a pointer to each of the Nodes on entry
+# on hashcache Node creation create an assignment_pointer for the F of the Node finish - Node.f
+# on hashcache Node creation create an assignment_pointer for the S of the next Node - Node.Next
+# Node.Next = hashcahe[Node.f]
+# check for hashcache[finish] 
+#
+#
+# best plan so far
+
+#  we've created a list of the tickets in random order
+#  we've looped through the list and added them to the dict in the random order
+## we should while loop through the list finding the Node with 'None' as the start value
+#  this will be the first addition to the cache and the first addition to hashcache[total_transit] {total_transit:[]}
+#  continue while looping through the array Node.
+#
+# First Draft of Plan 3
+#
+#  next_flight=null
+#  total_transit=[] here or in the if loop?
+#  for flight in flights:
+#       if flight.source == None:
+#           hashcache[flight.source] = flight.destination
+#           hashcache['total_transit']=[]
+#           hashcache['total_transit'].append(flight.destination)
+#           nextflight = flight.destination
+#           return or yield?
+#  while flight.destination != None:
+#       hashcache[flight.source] = flight.destination
+#       hashcache['total_transit'].append(flight.destination)
+#       nextflight = flight.destination
+#  if flight.destination == None:
+#       hashcache[flight.source]=flight.destination
+#       hashcache['total_transit'].append(flight.destination)            
+#       return hashcache['total_transit]            
+#                       
+#  this will be the first addition to the cache and the first addition to hashcache[total_transit] {total_transit:[]}
+#  continue while looping through the array Node.
+
+
+def reconstruct_trip(flights, LoadFactor):
+    hashcache={}
+    hashcache['total_transit']=[]
+    next_flight=None
+    for flight in flights:
+        # setting the sources as the key and the destinations as values
+        hashcache[flight.source] = flight.destination
+    # ⬇⬇this sets next_flight⬇⬇ not to "None" but to the value at key of "None" 
+    next_flight=hashcache["NONE"]
+    while next_flight != "NONE":
+        hashcache['total_transit'].append(next_flight)
+        next_flight=hashcache[next_flight]
+    return hashcache['total_transit']
+        
+class Ticket:
+    def __init__(self, source, destination):
+        self.source = source
+        self.destination = destination
+    def __str__(self):
+        return self.source,self.destination
+
+tickets = [
+    Ticket("PIT", "ORD" ),
+    Ticket("XNA", "CID" ),
+    Ticket("SFO", "BHM" ),
+    Ticket("FLG", "XNA" ),
+    Ticket("NONE", "LAX"),
+    Ticket("LAX", "SFO" ),
+    Ticket("CID", "SLC" ),
+    Ticket("ORD", "NONE"),
+    Ticket("SLC", "PIT" ),
+    Ticket("BHM", "FLG" )
+]
+
+reconstruct_trip(tickets,None)
