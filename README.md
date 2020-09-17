@@ -23,11 +23,51 @@ Commit your code regularly and meaningfully. This practice helps both you (in ca
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your answers beforehand.
 
 1. Hashing functions
+    - a hashing function is a way to take in a piece of data a string and storing it as an index in a list
+    - hashing funcitons are idempotent meaning that if you put a specific entry in you will always get the same output
+    - hashing function are generally designed to be memory intensive and in the case of login or credential systems are by design supposed to take a longer certain amont of time to make it more unlikely that a password  hash could be broken even by brute force in a literal 1000 years 
+    - a hashing function takes an argument does some logic to it alot of times it might use the modulo as a step to decrease the final int down and squeeze it within the limiting bounds of the array size we are working with.
+    - there are steps we can take to optimize for collisions that might be cause by putting more things in a smaller array
+    - 
 2. Collision resolution
+    - linear or random probing
+    - chaining
 3. Performance of basic hash table operations
+    - loading of the hastable might be performance intensive but the actual seaching and retrieval of a loaded hashtable runs at constant time 0(1)
+    - if there are 3 entries or 10million entries it will take the same number of steps 
+    - idempotent
 4. Load factor
+    Load factor is how much of the table is empty vs occupied
+    - Load is determined with a trivial calculation 
+    - number of cells available/number filled
+    - around .3 is suggested to be a good aiming point for load factor
+    - other suggestions say to rehash the table by a factor of 2 (or 1/2) if you rise above 0.70 loadfactor or drop below 0.20 load factor
+    - common beginning size is 8 slots
 5. Automatic resizing
+    - You can setup logic to automatically rehash a table in downtime ideally if the loadfactor rises or falls outside of predetermined limits
+
 6. Various use cases for hash tables
+    - anytime you have a time intensive operation to complete if memory use is less of a concern and you can achieve constant time lookups and inserts.
+        - library systems
+        - student records
+        - cellphone contact list
+        - 
+    - times when you need quick searches and inserts over a large set of records
+    - browsers come to mind.
+      being able to pre load webpages by saving them the first time they are loaded for users with limited cell connection or when multiple users will need the same resource from the same place you can 'serve' data once but 'many times' this way 
+    
+    -  From what im finding in my personal studies with the current technological climate there is an abundance of storage space. Ever smaller mircochips and access to storage with cloud computing space decreases the price of data concurrency. There has never been enough time since we started counting it.  So saving time by precomputing and spending data currency is optimal in     most cases.
+    
+    -  Duplication prevention
+        - for a raffle
+        -  or a voting system
+        -  to keep one vote per one voter
+        -  or one ticket per person
+        - storing users to prevent duplicates or 
+          overwriting
+        - the ability to use a string as the 'index' lets you use a unique id like a name or some randomly hashed int from an idempotent hashing function and still get the O(1) lookup you get from an array with a known index
+    
+
 
 We expect you to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

@@ -32,3 +32,30 @@ Limits:
 
 * There can be up to 10 lists in the list of lists.
 * The lists can contain up to roughly 1,000,000 elements each.
+
+
+## plan
+# create a hashcache 
+# for each list
+#    loop through items in list
+#    create a pointer for string(item)
+#    check dict for itempointer
+#    if there add 1 to count at  dict[pointeritem][0]
+#    if not there add it in and set count to 1    
+#    if count is equalt to total arrays length add the item to list hashcache['inall3'][...,...,...]
+#
+
+ 
+# PSEUDO CODE PLAN
+# create a dict
+# for each list
+# for item in items_list:
+#    itemster=str(item)
+#    if  dict[itemster]:
+#        dict[itemster][0]+=1
+#    else:
+#        dict[itemster]=[1,item]
+#
+#    if dict[itemster][0]==total_arrs_length:
+#        dict['inall3']=[]
+#        dict['inall3'].append(itemstr)
