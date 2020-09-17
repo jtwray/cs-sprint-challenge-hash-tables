@@ -14,6 +14,7 @@ class TestEx4(unittest.TestCase):
 
         result = has_negatives([-1,-2,1,2,3,4,-4])
         result.sort()
+        print(f'result=>{result}||expected=>[1,2,4]')
         self.assertTrue(result == [1,2,4])
 
     def test_large(self):
@@ -22,6 +23,7 @@ class TestEx4(unittest.TestCase):
 
         result = has_negatives(a)
         result.sort()
+        print(f'result==>>{result}||expected==>[1,2,3]')
         self.assertTrue(result == [1,2,3])
 
 if __name__ == '__main__':
